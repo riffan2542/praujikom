@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::group(['prefix'=> 'backend', 'middleware'=> ['auth', 'role:admin']],function(){
+    Route::resource('user', 'UserController');
+  });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
