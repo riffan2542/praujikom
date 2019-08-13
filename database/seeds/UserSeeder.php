@@ -17,12 +17,13 @@ class UserSeeder extends Seeder
         $adminRole = new Role();
         $adminRole->name = "admin";
         $adminRole->display_name = "Admin";
+
         $adminRole->save();
 
         //Membuat sample admin
         $admin = new User(); 
-        $admin->name ="admin";
-        $admin->email="Riffan2542@gmail.com";
+        $admin->name ="Admin";
+        $admin->email="riffan2542@gmail.com";
         $admin->password =bcrypt("persib2014");
         $admin->save();
         $admin->attachRole($adminRole);
